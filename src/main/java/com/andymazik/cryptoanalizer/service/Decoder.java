@@ -1,9 +1,9 @@
 package com.andymazik.cryptoanalizer.service;
 
-@SuppressWarnings("unused")
 public class Decoder extends AbstractActionImpl{
     @Override
     public String execute(String[] params) {
-        return null;
+        int key = -1 * Integer.parseInt(params[2]);
+        return convertMessage(params[0], params[1], key);
     }
 }
