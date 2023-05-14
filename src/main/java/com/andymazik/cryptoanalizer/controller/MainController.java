@@ -16,11 +16,8 @@ public class MainController {
         actions.put("BRUTEFORCE", new BruteForcer());
         actions.put("ANALYZE", new Analyzer());
     }
-    //TODO: В этом методе будет прописана логика вызова определенного действия и передачи
-    // в него параметров. По первому параметру мы определяем какое это действие, после чего
-    // вызываем метод execute() у необходимого класса.
+
     public String doAction(String actionName, String[] parameters) {
-        //Получение объекта через мапу нужно для того чтобы избавиться от if'ов
         Action action = actions.get(actionName.toUpperCase());
         return action.execute(parameters);
     }

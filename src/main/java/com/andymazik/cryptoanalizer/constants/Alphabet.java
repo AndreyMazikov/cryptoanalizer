@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class Alphabet {
     private static final String rus = "ЙЦУКЕНГШЩЗХЪЭЖДЛОРПАВЫФЯЧСМИТЬБЮ";
-    //private static final String symbols = "\n☮.,”’:-!? ";
     private static final String symbols = "☮.,”’:-!? ";
 
     public static final char[] CHARS = (rus.toLowerCase() + symbols).toCharArray();

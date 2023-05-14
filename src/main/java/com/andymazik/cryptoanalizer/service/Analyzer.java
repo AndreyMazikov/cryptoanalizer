@@ -38,7 +38,6 @@ public class Analyzer extends AbstractActionImpl {
                                 : character);
             }
         } catch (RuntimeException | IOException e) {
-            //throw new RuntimeException(e);
             result = "";
         }
         return result;

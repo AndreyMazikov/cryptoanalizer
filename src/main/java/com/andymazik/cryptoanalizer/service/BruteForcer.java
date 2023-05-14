@@ -9,9 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class BruteForcer extends AbstractActionImpl{
-    //Логика работы метода строится на предположении, что самый часто встречающийся
-    // символ это пробел. Соответственно нужно найти в зашифрованном файле
-    // самые частый символ, поставить его в соответствие пробелу и найти ключ.
     @Override
     public String execute(String[] params) {
         String encryptedFilename = params[0];
@@ -29,7 +26,6 @@ public class BruteForcer extends AbstractActionImpl{
         return convertMessage(encryptedFilename, decryptedFilename, bestKey);
     }
 
-    //Этот метод подсчитывает количество определенных символов в файле
     private int countCharInFileWithKey(String encryptedFilename, int key, char fixChar) {
         int spaceCount = 0;
         Path path = PathBuilder.getPath(encryptedFilename);
