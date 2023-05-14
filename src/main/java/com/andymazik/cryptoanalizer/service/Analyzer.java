@@ -1,6 +1,7 @@
 package com.andymazik.cryptoanalizer.service;
 
 import com.andymazik.cryptoanalizer.constants.Alphabet;
+import com.andymazik.cryptoanalizer.util.PathBuilder;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,8 +20,8 @@ public class Analyzer extends AbstractActionImpl {
         List<Character> dictionaryChars = getSortedChars(dictionaryFilename);
         List<Character> sourceChars = getSortedChars(encryptedFilename);
 
-        Path source = getPath(encryptedFilename);
-        Path target = getPath(analyzedFilename);
+        Path source = PathBuilder.getPath(encryptedFilename);
+        Path target = PathBuilder.getPath(analyzedFilename);
 
         String result = analyzedFilename;
         try (BufferedReader reader = Files.newBufferedReader(source);
@@ -45,7 +46,7 @@ public class Analyzer extends AbstractActionImpl {
 
     private List<Character> getSortedChars(String fileName) {
         Map<Character, Integer> map = createStartMap();
-        Path path = getPath(fileName);
+        Path path = PathBuilder.getPath(fileName);
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             int value;
             while ((value = reader.read()) > -1) {

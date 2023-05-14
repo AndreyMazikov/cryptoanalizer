@@ -1,4 +1,4 @@
-package com.andymazik.cryptoanalizer.view;
+package com.andymazik.cryptoanalizer.view.console;
 
 import com.andymazik.cryptoanalizer.controller.MainController;
 

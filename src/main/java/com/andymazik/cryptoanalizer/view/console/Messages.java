@@ -1,4 +1,4 @@
-package com.andymazik.cryptoanalizer.view;
+package com.andymazik.cryptoanalizer.view.console;
 
 @SuppressWarnings("unused")
 public interface Messages {

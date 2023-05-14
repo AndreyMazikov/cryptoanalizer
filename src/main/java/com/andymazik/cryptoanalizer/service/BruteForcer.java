@@ -1,6 +1,7 @@
 package com.andymazik.cryptoanalizer.service;
 
 import com.andymazik.cryptoanalizer.constants.Alphabet;
+import com.andymazik.cryptoanalizer.util.PathBuilder;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class BruteForcer extends AbstractActionImpl{
     //Этот метод подсчитывает количество определенных символов в файле
     private int countCharInFileWithKey(String encryptedFilename, int key, char fixChar) {
         int spaceCount = 0;
-        Path path = getPath(encryptedFilename);
+        Path path = PathBuilder.getPath(encryptedFilename);
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             int value;
             while ((value = reader.read()) > -1) {

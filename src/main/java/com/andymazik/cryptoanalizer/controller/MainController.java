@@ -21,7 +21,7 @@ public class MainController {
     // вызываем метод execute() у необходимого класса.
     public String doAction(String actionName, String[] parameters) {
         //Получение объекта через мапу нужно для того чтобы избавиться от if'ов
-        Action action = actions.get(actionName);
+        Action action = actions.get(actionName.toUpperCase());
         return action.execute(parameters);
     }
 }

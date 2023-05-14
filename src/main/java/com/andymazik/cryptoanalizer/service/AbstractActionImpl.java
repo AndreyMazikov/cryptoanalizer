@@ -1,23 +1,18 @@
 package com.andymazik.cryptoanalizer.service;
 
 import com.andymazik.cryptoanalizer.constants.Alphabet;
+import com.andymazik.cryptoanalizer.util.PathBuilder;
 
 import java.io.*;
 import java.nio.file.Path;
 
 public abstract class AbstractActionImpl implements Action{
-    String TEXT_FOLDER = System.getProperty("user.dir") +
-            File.separator +
-            "text" +
-            File.separator;
-
-
     //TODO: Данный метод будет являться общим для трех из четырех действий
     // (кодирование, декодирование, брутфорс). Он конвертирует текст, сдвигая
     // его на значение заданное ключом.
     public String convertMessage(String sourceFile, String convertedFile, int key) {
-        Path source = getPath(sourceFile);
-        Path target = getPath(convertedFile);
+        Path source = PathBuilder.getPath(sourceFile);
+        Path target = PathBuilder.getPath(convertedFile);
 
         //TODO:
         try (BufferedReader reader = new BufferedReader(new FileReader(source.toFile()));
@@ -48,12 +43,4 @@ public abstract class AbstractActionImpl implements Action{
         return convertedFile;
     }
 
-    public Path getPath(String fileName) {
-        Path path = Path.of(fileName);
-        if (!path.isAbsolute()) {
-            path = Path.of(TEXT_FOLDER + fileName);
-        }
-
-        return path;
-    }
 }
